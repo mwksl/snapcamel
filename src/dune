@@ -1,0 +1,16 @@
+(executable
+ (name main)
+ (public_name snapcamel)
+ (modules main templates models)
+ (libraries
+  base
+  stdio
+  dream
+  cohttp-lwt-unix
+  sqlite3
+  mustache))
+
+(install
+  (section share)
+  (files
+   (glob_files (../templates/* with_prefix templates))))

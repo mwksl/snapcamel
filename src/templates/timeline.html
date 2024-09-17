@@ -1,0 +1,17 @@
+{{> base.html}}
+<main class="container">
+  <h1>{{title}}</h1>
+  <section id="timeline">
+    <!-- Photos will be injected here -->
+    {{#photos}}
+      {{> photo.html}}
+    {{/photos}}
+  </section>
+  <div
+    hx-get="/load-more?before={{last_timestamp}}"
+    hx-trigger="intersect"
+    hx-swap="beforeend"
+    hx-indicator=".loading-spinner">
+  </div>
+  <div class="loading-spinner" style="display:none;">Loading...</div>
+</main>
